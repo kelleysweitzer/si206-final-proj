@@ -1,6 +1,6 @@
 import requests
 import json 
-from lyrics_api import * 
+from musixmatch_lyrics_api import * 
 
 while True: 
     print()
