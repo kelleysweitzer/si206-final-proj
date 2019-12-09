@@ -16,7 +16,7 @@ last_index = 0
 cur.execute("DROP TABLE IF EXISTS lyricslist")
 cur.execute("CREATE TABLE lyricslist (id INTEGER PRIMARY KEY, title TEXT, artist TEXT, lyrics TEXT)")
 pairs = cur.execute("SELECT title, artist FROM songlist")
-pairs = pairs.fetchmany(300)
+pairs = pairs.fetchmany(150)
 counter = 1
 
 for pair in pairs: 
