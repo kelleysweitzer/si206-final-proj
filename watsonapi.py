@@ -10,15 +10,19 @@ tone_analyzer = ToneAnalyzerV3(
 
 tone_analyzer.set_service_url('https://gateway.watsonplatform.net/tone-analyzer/api')
 
+
 songlyrics = open("lyrics.txt")
 lyrics = (songlyrics).read()
-
-
 text = lyrics
+
+# BE CAREFUL only run this part a couple of times!!!!
 tone_analysis = tone_analyzer.tone(
     {'text': text},
     content_type='text/plain',
     sentences = False
 ).get_result()
-print(json.dumps(tone_analysis, indent=2))
+
+# gets strongest tone in the song
+primary_tone = tone_analysis['document_tone']['tones'][0]['tone_name']
+primary_tone = tone_analysis['document_tone']['tones'][0]['score']
 

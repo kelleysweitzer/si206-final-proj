@@ -34,7 +34,7 @@ if token:
     cur.execute("CREATE TABLE Songlist (id TEXT PRIMARY KEY, title TEXT, artist TEXT, duration INTEGER, popularity INTEGER)")
     total = sp.current_user_saved_tracks(limit=1)['total']
 
-    while last_index < total or last_index < 100:  
+    while last_index < total and last_index < 200:  
 
         try:
             # makes API call for 20 items

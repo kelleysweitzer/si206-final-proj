@@ -22,9 +22,8 @@ counter = 1
 for pair in pairs: 
     try:
         track_name = pair[0]
-        print(track_name)
+        print(pair)
         artist_name = pair[1]
-        print(artist_name)
 
         # Finding the lyrics of a song: base url + api method + different parameters + the input that the user put in + API key 
         api_call = base_url + lyrics_matcher + format_url + artist_search_parameter + artist_name + track_search_parameter + track_name + api_key 
@@ -34,7 +33,8 @@ for pair in pairs:
         #data is equivalent to whatever is down at this level of message and body 
         data = data["message"]["body"]
         lyrics = data["lyrics"]["lyrics_body"]
-        if lyrics == "":
+        # print(lyrics)
+        if lyrics != "" or lyrics != " ":
             cur.execute("INSERT INTO lyricslist (id, title, artist, lyrics) VALUES (?, ?, ?, ?)", (counter, track_name, artist_name, lyrics))
             conn.commit()
         counter = counter + 1
