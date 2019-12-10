@@ -68,6 +68,6 @@ for song in tuples:
             counter += 1
         
         except:
-            print("ERROR Getting Tone Data")
+            pass
 
 
