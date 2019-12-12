@@ -23,7 +23,7 @@ cur.execute("CREATE TABLE lyricslist (id INTEGER PRIMARY KEY, title TEXT, artist
 
 # SELECT songs from spotify table (songlist)
 pairs = cur.execute("SELECT title, artist FROM songlist")
-pairs = pairs.fetchmany(150)
+pairs = pairs.fetchall()
 counter = 1
 
 for pair in pairs: 

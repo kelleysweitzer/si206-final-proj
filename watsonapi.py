@@ -27,7 +27,7 @@ cur.execute("CREATE TABLE sadsongs (id INTEGER PRIMARY KEY, title TEXT, artist T
 
 # get data from existing lyrics table
 data = cur.execute("SELECT title,artist,lyrics FROM lyricslist")
-tuples = data.fetchmany(10)
+tuples = data.fetchall()
 counter = 1
 
 # Loop through 
@@ -37,7 +37,7 @@ for song in tuples:
     _artist = song[1]
     lyrics = song[2]
         
-    print(lyrics)
+    # print(lyrics)
 
     if lyrics != "" and lyrics != " ":
         try:
@@ -53,7 +53,7 @@ for song in tuples:
             primary_tone = tone_analysis['document_tone']['tones'][0]['tone_name']
             score = tone_analysis['document_tone']['tones'][0]['score']
 
-            print(primary_tone)
+            # print(primary_tone)
 
             # populate tonelist SQL Database
             cur.execute("INSERT INTO tonelist (id, title, artist, primary_tone, primary_score) VALUES (?, ?, ?, ?, ?)", (counter, _title, _artist, primary_tone, score))
@@ -68,6 +68,5 @@ for song in tuples:
             counter += 1
         
         except:
+            print("Error")
             pass
-
-
