@@ -16,3 +16,14 @@ cur.execute("CREATE TABLE sadtimes (id	INTEGER, title TEXT, artist TEXT, sad TEX
 cur.execute("INSERT INTO sadtimes SELECT sadsongs.*, Songlist.duration, Songlist.title FROM sadsongs INNER JOIN Songlist ON sadsongs.title=Songlist.title")
 cur.execute()
 
+#avg duration of sad songs in sadtimes 
+SELECT avg(duration)
+FROM sadtimes;
+
+#avg sad_score in sadsongs 
+SELECT avg(sad_score)
+FROM sadtimes;
+
+#avg duration in songlist 
+SELECT avg(duration)
+FROM songlist;
