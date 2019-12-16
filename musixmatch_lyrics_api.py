@@ -4,7 +4,7 @@ base_url = "https://api.musixmatch.com/ws/1.1/"
 
 # your api key
 api_key = "&apikey=87345defc5a71a8e6dc4e60bbda9c392"
-# api_key = "SANYA'S API KEY"
+# api_key = "ce690a7e9bfbd1942d6ea39c7c71d0f8" "Sanya's API key"
 
 # api methods
 a1 = lyrics_matcher = "matcher.lyrics.get"
