@@ -17,7 +17,9 @@ conn.commit()
 
 #avg duration of sad songs in sadtimes 
 #cur.execute("SELECT avg(duration) FROM sadtimes") 
-#conn.commit()
+#rows = cur.fetchall()
+#for row in rows: 
+    #print(row)
 
 #avg sad_score in sadsongs 
 #cur.execute("SELECT avg(sad_score)FROM sadtimes")
