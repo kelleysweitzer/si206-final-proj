@@ -223,13 +223,13 @@ def duration_boxplot(database):
     plt.show()
         
 
-#number of songs per tone bar graph 
-# tone_dict = tone_number('songlist.db')
-# tone_number_visualization(tone_dict)
+# number of songs per tone bar graph 
+tone_dict = tone_number('songlist.db')
+tone_number_visualization(tone_dict)
 
-# #average primary score number per tone bar graph 
-# tone_score_dict = tone_score_average('songlist.db')
-# tone_score_visualization(tone_score_dict)
+#average primary score number per tone bar graph 
+tone_score_dict = tone_score_average('songlist.db')
+tone_score_visualization(tone_score_dict)
 
 # boxplot of popularity
 popularity_data = popularity_boxplot('songlist.db')
