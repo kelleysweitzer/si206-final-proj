@@ -135,8 +135,7 @@ def tone_score_average(database):
         anger += 1
         anger_sum = row[3]
     anger_average = anger_sum/anger
-    lst = [anger, anger_average]
-    tone_score_dict["Anger"] = lst 
+    tone_score_dict["Anger"] = anger_average
 
     #getting total number of confident songs and average primary_score
     confident_songs = cur.execute('SELECT title, artist, primary_tone, primary_score FROM tonelist WHERE primary_tone = "Confident"')
@@ -167,7 +166,7 @@ def tone_score_visualization(tone_score_dict):
     fig, ax = plt.subplots()
     
     #gives value for graph and sets color of each bar
-    plt.bar(names, vals, color = ['red', 'blue', 'cyan', 'yellow', 'pink', 'green', 'orange'])
+    plt.bar(names, vals, color = ['pink', 'green', 'orange', 'yellow', 'red', 'blue', 'cyan'])
 
     #sets more information for graph axis
     ax.set_xlabel("Tone Name")
