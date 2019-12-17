@@ -176,12 +176,61 @@ def tone_score_visualization(tone_score_dict):
     #presents the graph
     plt.show()
 
+def popularity_boxplot(database):
+    popularity_data = cur.execute('SELECT popularity FROM Songlist')
+    scores = []
+    data = popularity_data.fetchall()
+    for tup in data:
+        scores.append(tup[0])
+    # print (scores)
 
+        # Create a figure instance
+    fig = plt.figure(1, figsize=(9, 6))
+
+    # Create an axes instance
+    ax = fig.add_subplot(111)
+
+    # Create the boxplot
+    bp = ax.boxplot(scores)
+
+    ax.set_xlabel("Popularity Score")
+    ax.set_title("Range of Popularity Scores for all Spotify Songs")
+
+    plt.show()
+
+def duration_boxplot(database):
+    popularity_data = cur.execute('SELECT duration FROM Songlist')
+    scores = []
+    data = popularity_data.fetchall()
+    for tup in data:
+        seconds = tup[0]/1000
+        
+        scores.append(seconds)
+    # print (scores)
+
+        # Create a figure instance
+    fig = plt.figure(1, figsize=(9, 6))
+
+    # Create an axes instance
+    ax = fig.add_subplot(111)
+
+    # Create the boxplot
+    bp = ax.boxplot(scores)
+
+    ax.set_xlabel("Duration")
+    ax.set_title("Range of duration for all Spotify Songs")
+
+    plt.show()
+        
 
 #number of songs per tone bar graph 
-tone_dict = tone_number('songlist.db')
-tone_number_visualization(tone_dict)
+# tone_dict = tone_number('songlist.db')
+# tone_number_visualization(tone_dict)
 
-#average primary score number per tone bar graph 
-tone_score_dict = tone_score_average('songlist.db')
-tone_score_visualization(tone_score_dict)
+# #average primary score number per tone bar graph 
+# tone_score_dict = tone_score_average('songlist.db')
+# tone_score_visualization(tone_score_dict)
+
+# boxplot of popularity
+popularity_data = popularity_boxplot('songlist.db')
+duration = duration_boxplot('songlist.db')
