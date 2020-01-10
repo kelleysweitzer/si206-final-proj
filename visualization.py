@@ -221,6 +221,17 @@ def duration_boxplot(database):
     ax.set_title("Range of duration for all Spotify Songs")
 
     plt.show()
+
+def pie_chart_visual(tone_dict):
+    labels = tone_dict.keys()
+    sizes = tone_dict.values()
+
+    fig1, ax1 = plt.subplots()
+    ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
+            shadow=True, startangle=90)
+    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+    plt.show()
         
 
 # number of songs per tone bar graph 
@@ -234,3 +245,7 @@ tone_score_visualization(tone_score_dict)
 # boxplot of popularity
 popularity_data = popularity_boxplot('songlist.db')
 duration = duration_boxplot('songlist.db')
+
+#pie chart of # of tone songs
+tone_dict = tone_number('songlist.db')
+pie_chart_visual(tone_dict)
